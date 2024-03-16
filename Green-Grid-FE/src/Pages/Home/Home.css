@@ -1,0 +1,529 @@
+```python
+def find_max(arr):
+    max_num = arr[0]
+    for num in arr:
+        if num > max_num:
+            max_num = num
+    return max_num
+
+numbers = [3, 7, 2, 9, 4]
+result = find_max(numbers)
+print(result)
+```
+
+```python
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+num = 5
+result = factorial(num)
+print(result)
+```
+
+```python
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, num):
+        if num % i == 0:
+            return False
+    return True
+
+number = 7
+result = is_prime(number)
+print(result)
+```
+
+```python
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+num = 6
+result = fibonacci(num)
+print(result)
+```
+
+```python
+def reverse_string(s):
+    return s[::-1]
+
+text = "hello"
+result = reverse_string(text)
+print(result)
+```
+
+```python
+def count_vowels(s):
+    vowels = 'aeiouAEIOU'
+    count = 0
+    for char in s:
+        if char in vowels:
+            count += 1
+    return count
+
+text = "hello world"
+result = count_vowels(text)
+print(result)
+```
+
+```python
+def linear_search(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+    return -1
+
+numbers = [4, 2, 7, 1, 5]
+target_num = 7
+result = linear_search(numbers, target_num)
+print(result)
+```
+
+```python
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+
+numbers = [64, 34, 25, 12, 22, 11, 90]
+bubble_sort(numbers)
+print(numbers)
+```
+```python
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] < target:
+            low = mid + 1
+        elif arr[mid] > target:
+            high = mid - 1
+        else:
+            return mid
+    return -1
+
+numbers = [2, 3, 5, 7, 9, 11, 13, 17, 19, 23]
+target_num = 7
+result = binary_search(numbers, target_num)
+print(result)
+```
+```python
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_index = i
+        for j in range(i+1, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+
+numbers = [64, 25, 12, 22, 11]
+selection_sort(numbers)
+print(numbers)
+```
+```python
+def insertion_sort(arr):
+    n = len(arr)
+    for i in range(1, n):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+
+numbers = [12, 11, 13, 5, 6]
+insertion_sort(numbers)
+print(numbers)
+```
+
+```python
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left_half = arr[:mid]
+        right_half = arr[mid:]
+
+        merge_sort(left_half)
+        merge_sort(right_half)
+
+        i = j = k = 0
+
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                arr[k] = left_half[i]
+                i += 1
+            else:
+                arr[k] = right_half[j]
+                j += 1
+            k += 1
+
+        while i < len(left_half):
+            arr[k] = left_half[i]
+            i += 1
+            k += 1
+
+        while j < len(right_half):
+            arr[k] = right_half[j]
+            j += 1
+            k += 1
+
+numbers = [38, 27, 43, 3, 9, 82, 10]
+merge_sort(numbers)
+print(numbers)
+```
+```python
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        less = [x for x in arr[1:] if x <= pivot]
+        greater = [x for x in arr[1:] if x > pivot]
+        return quick_sort(less) + [pivot] + quick_sort(greater)
+
+numbers = [10, 7, 8, 9, 1, 5]
+result = quick_sort(numbers)
+print(result)
+```
+```python
+def power(base, exponent):
+    if exponent == 0:
+        return 1
+    else:
+        return base * power(base, exponent - 1)
+
+base_num = 2
+exp = 3
+result = power(base_num, exp)
+print(result)
+```
+```python
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
+
+num1 = 48
+num2 = 18
+result = gcd(num1, num2)
+print(result)
+```
+```python
+def lcm(a, b):
+    return abs(a*b) // gcd(a, b)
+
+num1 = 15
+num2 = 25
+result = lcm(num1, num2)
+print(result)
+```
+```python
+def is_palindrome(s):
+    s = s.lower()
+    return s == s[::-1]
+
+text = "Madam"
+result = is_palindrome(text)
+print(result)
+```
+
+```python
+def find_average(arr):
+    return sum(arr) / len(arr)
+
+numbers = [4, 7, 2, 8, 6]
+result = find_average(numbers)
+print(result)
+```
+
+```python
+def remove_duplicates(arr):
+    return list(set(arr))
+
+numbers = [1, 2, 2, 3, 4, 4, 5]
+result = remove_duplicates(numbers)
+print(result)
+```
+
+```python
+def compute_square_root(n):
+    return n ** 0.5
+
+num = 16
+result = compute_square_root(num)
+print(result)
+```
+```python
+def is_power_of_two(n):
+    return n > 0 and (n & (n - 1)) == 0
+
+num = 16
+result = is_power_of_two(num)
+print(result)
+```
+```python
+def is_even(n):
+    return n % 2 == 0
+
+num = 7
+result = is_even(num)
+print(result)
+```
+```python
+def is_odd(n):
+    return n % 2 != 0
+
+num = 6
+result = is_odd(num)
+print(result)
+```
+```python
+def generate_fibonacci_sequence(n):
+    fib_sequence = [0, 1]
+    while len(fib_sequence) < n:
+        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+    return fib_sequence
+
+count = 8
+result = generate_fibonacci_sequence(count)
+print(result)
+```
+```python
+def find_gcd(x, y):
+    while(y):
+        x, y = y, x % y
+    return x
+
+num1 = 60
+num2 = 48
+result = find_gcd(num1, num2)
+print(result)
+```
+```python
+def find_lcm(x, y):
+    return abs(x*y) // find_gcd(x, y)
+
+num1 = 15
+num2 = 25
+result = find_lcm(num1, num2)
+print(result)
+```
+
+```python
+def find_factorial_recursive(n):
+    if n == 0:
+        return 1
+    else:
+        return n * find_factorial_recursive(n-1)
+
+num = 5
+result = find_factorial_recursive(num)
+print(result)
+```
+
+```python
+def find_factorial_iterative(n):
+    factorial = 1
+    for i in range(1, n + 1):
+        factorial *= i
+    return factorial
+
+num = 5
+result = find_factorial_iterative(num)
+print(result)
+```
+```python
+def find_power(base, exponent):
+    result = 1
+    for _ in range(exponent):
+        result *= base
+    return result
+
+base_num = 2
+exp = 3
+result = find_power(base_num, exp)
+print(result)
+```
+
+```python
+def find_median(arr):
+    n = len(arr)
+    arr.sort()
+    if n % 2 == 0:
+        return (arr[n//2 - 1] + arr[n//2]) / 2
+    else:
+        return arr[n//2]
+
+numbers = [7, 2, 1, 6, 8, 4]
+result = find_median(numbers)
+print(result)
+```
+
+```python
+def find_mode(arr):
+    frequency = {}
+    for num in arr:
+        if num in frequency:
+            frequency[num] += 1
+        else:
+            frequency[num] = 1
+    max_freq = max(frequency.values())
+    mode = [key for key, value in frequency.items() if value == max_freq]
+    return mode
+
+numbers = [2, 3, 2, 4, 5, 2, 6, 7, 2]
+result = find_mode(numbers)
+print(result)
+```
+
+```python
+def find_primes(n):
+    primes = []
+    for num in range(2, n+1):
+        is_prime = True
+        for i in range(2, int(num**0.5) + 1):
+            if num % i == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(num)
+    return primes
+
+limit = 20
+result = find_primes(limit)
+print(result)
+```
+
+```python
+def reverse_number(n):
+    reversed_num = 0
+    while n > 0:
+        digit = n % 10
+        reversed_num = reversed_num * 10 + digit
+        n = n // 10
+    return reversed_num
+
+num = 12345
+result = reverse_number(num)
+print(result)
+```
+
+```python
+def is_armstrong_number(n):
+    order = len(str(n))
+    sum = 0
+    temp = n
+    while temp > 0:
+        digit = temp % 10
+        sum += digit ** order
+        temp //= 10
+    return n == sum
+
+num = 153
+result = is_armstrong_number(num)
+print(result)
+```
+
+```python
+def is_perfect_number(n):
+    sum = 0
+    for i in range(1, n):
+        if n % i == 0:
+            sum += i
+    return sum == n
+
+num = 28
+result = is_perfect_number(num)
+print(result)
+```
+```python
+def is_happy_number(n):
+    def get_next(num):
+        total_sum = 0
+        while num > 0:
+            digit = num % 10
+            total_sum += digit ** 2
+            num //= 10
+        return total_sum
+
+    seen = set()
+    while n != 1 and n not in seen:
+        seen.add(n)
+        n = get_next(n)
+
+    return n == 1
+
+num = 19
+result = is_happy_number(num)
+print(result)
+```
+```python
+def is_pangram(s):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    s = s.lower()
+    for char in alphabet:
+        if char not in s:
+            return False
+    return True
+
+text = "The quick brown fox jumps over the lazy dog"
+result = is_pangram(text)
+print(result)
+```
+
+```python
+def find_duplicates(arr):
+    frequency = {}
+    duplicates = []
+    for num in arr:
+        if num in frequency:
+            if frequency[num] == 1:
+                duplicates.append(num)
+            frequency[num] += 1
+        else:
+            frequency[num] = 1
+    return duplicates
+
+numbers = [1, 2, 3, 2, 4, 5, 6, 3]
+result = find_duplicates(numbers)
+print(result)
+```
+```python
+def find_missing_number(arr):
+    n = len(arr) + 1
+    total_sum = n * (n + 1) // 2
+    current_sum = sum(arr)
+    return total_sum - current_sum
+
+numbers = [1, 2, 4, 5, 6]
+result = find_missing_number(numbers)
+print(result)
+```
+
+```python
+def find_intersection(arr1, arr2):
+    return list(set(arr1) & set(arr2))
+
+list1 = [1, 2, 3, 4, 5]
+list2 = [3, 4, 5, 6, 7]
+result = find_intersection(list1, list2)
+print(result)
+```
+
+```python
+def find_union(arr1, arr2):
+    return list(set(arr1) | set(arr2))
+
+list1 = [1, 2, 3, 4, 5]
+list2 = [3
